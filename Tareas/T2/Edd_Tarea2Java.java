@@ -70,7 +70,7 @@ public class Edd_Tarea2Java {
                 imp.transferirPP();
                 break;
             case 8:
-                
+                imp.verMonedas();
                 break;
             case 9: 
                 v=false;
