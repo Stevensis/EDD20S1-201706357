@@ -78,6 +78,34 @@ public:
         }
         
     }
+    
+    void buscar(int c){
+        Nodo* temporal = first;
+        while(temporal !=NULL){
+            if(temporal->alumno.getCarne()==c){
+                cout<<"El carne es:";
+                cout<<temporal->alumno.getCarne()  <<endl;
+                cout<<"El nombre es:"+ temporal->alumno.getName() <<endl;
+                return;
+            }
+            temporal = temporal ->next;
+            
+        }
+        cout<<"No se encontro ningun alumno con este carne"<<endl;
+    }
+    
+    void eliminar(int c){
+        Nodo* temporal = first;
+        while(temporal !=NULL){
+            if(temporal->alumno.getCarne()==c){
+                first = temporal->next;
+                return;
+            }
+            temporal = temporal ->next;
+            
+        }
+        cout<<"No se encontro ningun alumno con este carne"<<endl;
+    }
 };
 procesos *lista = new procesos();
 int main() {
@@ -103,13 +131,28 @@ void procedimiento(){
             insertarAlumno();
             break;
         case 2: 
+            int p;
+            cout<<"Ingrese el carne de la persona a buscar"<<endl;
+            cin>>p;
+            cout<<""<<endl;
+            lista->eliminar(p);
             break;
         case 3:
+            int c;
+            cout<<"Ingrese el carne de la persona a buscar"<<endl;
+            cin>>c;
+            cout<<""<<endl;
+            lista->buscar(c);
             break;
         case 4: 
             v=false;
             break;
-            
+        case 5:
+            lista->ver();
+            break;
+        default:
+            cout<<"Se ingreso un dato incorrecto"<<endl;
+            break;
     }
 }
 
@@ -122,8 +165,5 @@ void insertarAlumno(){
     cin>> name;
     Alumno alumno(name,IdA);
     lista->agregarFirst(alumno);
-    
-    
-    
     cout<<""<<endl;
 }
