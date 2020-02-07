@@ -79,6 +79,7 @@ public:
         
     }
 };
+procesos *lista = new procesos();
 int main() {
     cout<<"Welcome to sis assistant" << endl;
     cout<<""<<endl;
@@ -120,7 +121,7 @@ void insertarAlumno(){
     cout<<"Igrese el nombre del alumno"<<endl;
     cin>> name;
     Alumno alumno(name,IdA);
-   // lista->agregarFirst(alumno);
+    lista->agregarFirst(alumno);
     
     
     
